@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: JuegoTest.java 1013 2007-08-20 23:04:33Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -19,7 +19,7 @@ import junit.framework.TestCase;
 import uniandes.cupi2.continental.cliente.mundo.*;
 
 /**
- * Clase usada para verificar que los métodos de la clase Juego estén correctamente implementados.
+ * Clase usada para verificar que los mï¿½todos de la clase Juego estï¿½n correctamente implementados.
  */
 public class JuegoTest extends TestCase
 {
@@ -49,23 +49,23 @@ public class JuegoTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * Prueba 1: Verifica que agregarCarta esté correctamente implementado.
+     * Prueba 1: Verifica que agregarCarta estï¿½ correctamente implementado.
      */
     public void testAgregarCarta( )
     {
         setupEscenario1( );
         juego.agregarCarta( "PICAS", "2", "2picas.png" );
 
-        ArrayList cartas = juego.darJuego( );
+        ArrayList<Carta> cartas = juego.darJuego( );
         Carta carta = ( Carta )cartas.get( 0 );
-        assertTrue( "Error al agregar carta. El tamaño de la barajo no cambió.", cartas.size( ) == 1 );
-        assertTrue( "Error al agregar carta. Debería ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
-        assertTrue( "Error al agregar carta. Debería ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
+        assertTrue( "Error al agregar carta. El tamaï¿½o de la barajo no cambiï¿½.", cartas.size( ) == 1 );
+        assertTrue( "Error al agregar carta. Deberï¿½a ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
+        assertTrue( "Error al agregar carta. Deberï¿½a ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
         assertTrue( "Error al agregar carta. La imagen no coincide.", carta.darImagen( ).equals( "2picas.png" ) );
     }
 
     /**
-     * Prueba 2: Verifica que modificarCartaTemporal esté correctamente implementado.
+     * Prueba 2: Verifica que modificarCartaTemporal estï¿½ correctamente implementado.
      */
     public void testModificarCartaTemporal( )
     {
@@ -73,13 +73,13 @@ public class JuegoTest extends TestCase
         juego.modificarCartaTemporal( "PICAS", "2", "2picas.png" );
 
         Carta carta = juego.darCartaTemporal( );
-        assertTrue( "Error al modificar carta temporal. Debería ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
-        assertTrue( "Error al modificar carta temporal. Debería ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
+        assertTrue( "Error al modificar carta temporal. Deberï¿½a ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
+        assertTrue( "Error al modificar carta temporal. Deberï¿½a ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
         assertTrue( "Error al modificar carta temporal. La imagen no coincide.", carta.darImagen( ).equals( "2picas.png" ) );
     }
 
     /**
-     * Prueba 3: Verifica que modificarCartaTemporal esté correctamente implementado.
+     * Prueba 3: Verifica que modificarCartaTemporal estï¿½ correctamente implementado.
      */
     public void testModificarCartaTemporal2( )
     {
@@ -87,13 +87,13 @@ public class JuegoTest extends TestCase
         juego.modificarCartaTemporal( new Carta( "PICAS", "2", "2picas.png" ) );
 
         Carta carta = juego.darCartaTemporal( );
-        assertTrue( "Error al modificar carta temporal. Debería ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
-        assertTrue( "Error al modificar carta temporal. Debería ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
+        assertTrue( "Error al modificar carta temporal. Deberï¿½a ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
+        assertTrue( "Error al modificar carta temporal. Deberï¿½a ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
         assertTrue( "Error al modificar carta temporal. La imagen no coincide.", carta.darImagen( ).equals( "2picas.png" ) );
     }
 
     /**
-     * Prueba 4: Verifica que modificarCartaBarajaJugada esté correctamente implementado.
+     * Prueba 4: Verifica que modificarCartaBarajaJugada estï¿½ correctamente implementado.
      */
     public void testModificarCartaBarajaJugada( )
     {
@@ -101,13 +101,13 @@ public class JuegoTest extends TestCase
         juego.modificarCartaBarajaJugada( "PICAS", "2", "2picas.png" );
 
         Carta carta = juego.darCartaBarajaJugada( );
-        assertTrue( "Error al modificar carta baraja jugada. Debería ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
-        assertTrue( "Error al modificar carta baraja jugada. Debería ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
+        assertTrue( "Error al modificar carta baraja jugada. Deberï¿½a ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
+        assertTrue( "Error al modificar carta baraja jugada. Deberï¿½a ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
         assertTrue( "Error al modificar carta baraja Jugada. La imagen no coincide.", carta.darImagen( ).equals( "2picas.png" ) );
     }
 
     /**
-     * Prueba 5: Verifica que modificarCartaBarajaJugada esté correctamente implementado.
+     * Prueba 5: Verifica que modificarCartaBarajaJugada estï¿½ correctamente implementado.
      */
     public void testModificarCartaBarajaJugada2( )
     {
@@ -115,8 +115,8 @@ public class JuegoTest extends TestCase
         juego.modificarCartaBarajaJugada( new Carta( "PICAS", "2", "2picas.png" ) );
 
         Carta carta = juego.darCartaBarajaJugada( );
-        assertTrue( "Error al modificar carta baraja jugada. Debería ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
-        assertTrue( "Error al modificar carta baraja jugada. Debería ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
+        assertTrue( "Error al modificar carta baraja jugada. Deberï¿½a ser de picas.", carta.darPalo( ).equals( "PICAS" ) );
+        assertTrue( "Error al modificar carta baraja jugada. Deberï¿½a ser un 2.", carta.darRepresentacion( ).equals( "2" ) );
         assertTrue( "Error al modificar carta baraja Jugada. La imagen no coincide.", carta.darImagen( ).equals( "2picas.png" ) );
     }
 }

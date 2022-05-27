@@ -32,6 +32,7 @@ public class Encuentro extends Thread
 	private static final String INFO = "INFO";
 	
 	private static final String PRIMER_TURNO = "PRIMERTURNO";
+    
 	
     // -----------------------------------------------------------------
     // Atributos
@@ -93,7 +94,7 @@ public class Encuentro extends Thread
     private boolean termino;
 
     /**
-     * Es el administrador que permite registrar el resultado del encuentro sobre la base de datos y consultar la información de los jugadores
+     * Es el administrador que permite registrar el resultado del encuentro sobre la base de datos y consultar la informaciï¿½n de los jugadores
      */
     private AdministradorJugadores admon;
 
@@ -103,12 +104,12 @@ public class Encuentro extends Thread
     // -----------------------------------------------------------------
     
     /**
-     * Método constructor de la clase encargado de establecer la comunicación con los dos jugadores y dejar listo el escenario para iniciar
+     * Mï¿½todo constructor de la clase encargado de establecer la comunicaciï¿½n con los dos jugadores y dejar listo el escenario para iniciar
      * el encuentro
      * @param jug1 El socket para comunicarse con el jugador 1 - cliente1 != null
      * @param jug2 El socket para comunicarse con el jugador 2 - cliente2 != null
      * @param admin Es el objeto que permite consultar y registrar resultados sobre la base de datos - administrador != null
-     * @throws IOException Se lanza esta excepción si hay problemas estableciendo la comunicación con los dos jugadores
+     * @throws IOException Se lanza esta excepciï¿½n si hay problemas estableciendo la comunicaciï¿½n con los dos jugadores
      */
 	public Encuentro(Socket jug1, Socket jug2, AdministradorJugadores admin) throws IOException
 	{
@@ -133,11 +134,11 @@ public class Encuentro extends Thread
 	
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 	
 	/**
-	 * Método encargado de cargar todas las cartas del naipe a una baraja que entra por parámetro
+	 * Mï¿½todo encargado de cargar todas las cartas del naipe a una baraja que entra por parï¿½metro
 	 * @param baraja La baraja a la que se quiere adicionar las cartas del naipe
 	 */
 	public void cargarCartas( Baraja baraja )
@@ -182,7 +183,7 @@ public class Encuentro extends Thread
 	}
 	
 	/**
-     * Método encargado de retornar el canal con el jugador 1
+     * Mï¿½todo encargado de retornar el canal con el jugador 1
      * @return socketJugador1 El canal con el jugador 1
      */
     public Socket darSocketJugador1( )
@@ -191,7 +192,7 @@ public class Encuentro extends Thread
     }
 
     /**
-     * Método encargado de retornar el canal con el jugador 2
+     * Mï¿½todo encargado de retornar el canal con el jugador 2
      * @return socketJugador1 El canal con el jugador 2
      */
     public Socket darSocketJugador2( )
@@ -209,7 +210,7 @@ public class Encuentro extends Thread
     }
     
 	/**
-	 * Método encargado de retornar el estado del encuetro
+	 * Mï¿½todo encargado de retornar el estado del encuetro
 	 * @return true si termino, false en caso contrario
 	 */
 	public boolean encuentroTerminado( )
@@ -218,11 +219,11 @@ public class Encuentro extends Thread
 	}
 	
 	/**
-     * Método encargado de crear el encuentro y manejarlo mientras que este dure.<br>
+     * Mï¿½todo encargado de crear el encuentro y manejarlo mientras que este dure.<br>
      * El ciclo de vida de un encuentro tiene tres partes:<br>
      * 1. Iniciar el encuentro <br>
-     * 2. Realizar el encuentro (permitir la comunicación entre los clientes)<br>
-     * 3. Terminar el encuentro y enviar la información sobre el ganador
+     * 2. Realizar el encuentro (permitir la comunicaciï¿½n entre los clientes)<br>
+     * 3. Terminar el encuentro y enviar la informaciï¿½n sobre el ganador
      */
     public void run( )
     {
@@ -275,13 +276,13 @@ public class Encuentro extends Thread
     }
     
     /**
-     * Método encargado de iniciar un encuentro: <br>
-     * 1. Lee la información con los nombres de los jugadores <br>
+     * Mï¿½todo encargado de iniciar un encuentro: <br>
+     * 1. Lee la informaciï¿½n con los nombres de los jugadores <br>
      * 2. Consulta los registros de los jugadores <br>
-     * 3. Envía a cada jugador tanto su información como la de su oponente <br>
-     * 4. Le envía a cada jugador un indicador para que sepa si es su turno de jugar. Siempre inicia el juego el primer jugador que se conectó. <br>
-     * @throws BatallaNavalException Se lanza esta excepción si hay problemas con el acceso a la base de datos
-     * @throws IOException Se lanza esta excepción si hay problemas en la comunicación
+     * 3. Envï¿½a a cada jugador tanto su informaciï¿½n como la de su oponente <br>
+     * 4. Le envï¿½a a cada jugador un indicador para que sepa si es su turno de jugar. Siempre inicia el juego el primer jugador que se conectï¿½. <br>
+     * @throws BatallaNavalException Se lanza esta excepciï¿½n si hay problemas con el acceso a la base de datos
+     * @throws IOException Se lanza esta excepciï¿½n si hay problemas en la comunicaciï¿½n
      */
     protected void iniciarEncuentro( ) throws IOException, ContinentalException
     {
@@ -309,10 +310,10 @@ public class Encuentro extends Thread
     
 
     /**
-     * Método encargado de obtener la información de un jugador a partir del mensaje que envió cuando entró al encuentro
+     * Mï¿½todo encargado de obtener la informaciï¿½n de un jugador a partir del mensaje que enviï¿½ cuando entrï¿½ al encuentro
      * @param info El mensaje que fue enviado - info es de la forma "JUGADOR:<nombre>"
-     * @return Retorna la información del jugador
-     * @throws BatallaNavalException Se lanza esta excepción si hay problemas consultando a la base de datos o se recibe un mensaje con un formato inesperado
+     * @return Retorna la informaciï¿½n del jugador
+     * @throws BatallaNavalException Se lanza esta excepciï¿½n si hay problemas consultando a la base de datos o se recibe un mensaje con un formato inesperado
      */
     private InfoJugador consultarJugador( String info ) throws ContinentalException
     {
@@ -326,7 +327,7 @@ public class Encuentro extends Thread
             }
             catch( SQLException e )
             {
-                throw new ContinentalException( "Hubo un problema leyendo la información del jugador: " + e.getMessage( ) );
+                throw new ContinentalException( "Hubo un problema leyendo la informaciï¿½n del jugador: " + e.getMessage( ) );
             }
         }
         else
@@ -336,9 +337,9 @@ public class Encuentro extends Thread
     }
     
     /**
-     * Método encargado de enviar la información registrada de un jugador usando uno de los streams que permiten la comunicación con los 
+     * Mï¿½todo encargado de enviar la informaciï¿½n registrada de un jugador usando uno de los streams que permiten la comunicaciï¿½n con los 
      * clientes
-     * @param out El stream a través del cual se debe enviar la información - out es un stream abierto hacia uno de los jugadores
+     * @param out El stream a travï¿½s del cual se debe enviar la informaciï¿½n - out es un stream abierto hacia uno de los jugadores
      * @param reg El registro que se va a transmitir - reg != null
      */
     private void enviarInformacion( PrintWriter out, InfoJugador reg )
@@ -358,13 +359,14 @@ public class Encuentro extends Thread
     }
     
     /**
-     * Método encargado de procesar una jugada completa del juego, recibiendo y enviando los mensajes del juego <br>
+     * Mï¿½todo encargado de procesar una jugada completa del juego, recibiendo y enviando los mensajes del juego <br>
      * Si con la jugada el encuentro termina, entonces el atributo termino del encuentro se convierte en true
-     * @param atacante El número del jugador que tiene el turno de atacar - atacante = 1 o atacante = 2
+     * @param atacante El nï¿½mero del jugador que tiene el turno de atacar - atacante = 1 o atacante = 2
      * @return 
-     * @throws ContinentalException Cuando hay problemas con la información que llega
-     * @throws IOException Cuando hay problemas en la comunicación
+     * @throws ContinentalException Cuando hay problemas con la informaciï¿½n que llega
+     * @throws IOException Cuando hay problemas en la comunicaciï¿½n
      */
+    @SuppressWarnings({ "resource" })
     protected Baraja procesarJugada( int atacante ) throws IOException, ContinentalException
     {
         PrintWriter manoOut = ( atacante == 1 ) ? out1 : out2;
@@ -399,7 +401,7 @@ public class Encuentro extends Thread
             		}
             		else
             		{
-            			throw new ContinentalException( "Se esperaba una Carta pero se recibió " + mano );
+            			throw new ContinentalException( "Se esperaba una Carta pero se recibiï¿½ " + mano );
             		}
             	}
         		else if( mano.startsWith( JugadorContinental.VICTORIA ) )
@@ -415,12 +417,12 @@ public class Encuentro extends Thread
         		}
             	else
             	{
-            		throw new ContinentalException( "Se esperaba una JUGADA pero se recibió " + mano );	
+            		throw new ContinentalException( "Se esperaba una JUGADA pero se recibiï¿½ " + mano );	
             	}
             }
             else
             {
-            	throw new ContinentalException( "Se esperaba una JUGADA pero se recibió una cadena nula" );
+            	throw new ContinentalException( "Se esperaba una JUGADA pero se recibiï¿½ una cadena nula" );
             }
         }
         else
@@ -438,10 +440,10 @@ public class Encuentro extends Thread
     /**
      * Realiza las actividades necesarias para terminar un encuentro: <br>
      * 1. Actualiza los registros de los jugadores en la base de datos <br>
-     * 2. Envía un mensaje a los jugadores advirtiendo sobre el fin del juego y el nombre del ganador <br>
+     * 2. Envï¿½a un mensaje a los jugadores advirtiendo sobre el fin del juego y el nombre del ganador <br>
      * 3. Cierra las conexiones a los jugadores
-     * @throws BatallaNavalException Se lanza esta excepción si hay problemas con el acceso a la base de datos
-     * @throws IOException Se lanza esta excepción si hay problemas en la comunicación
+     * @throws BatallaNavalException Se lanza esta excepciï¿½n si hay problemas con el acceso a la base de datos
+     * @throws IOException Se lanza esta excepciï¿½n si hay problemas en la comunicaciï¿½n
      */
     protected void terminarEncuentro( Baraja mano ) throws ContinentalException, IOException
     {	
@@ -469,7 +471,7 @@ public class Encuentro extends Thread
         }
         catch( SQLException e )
         {
-            throw new ContinentalException( "Error actualizando la información en la base de datos: " + e.getMessage( ) );
+            throw new ContinentalException( "Error actualizando la informaciï¿½n en la base de datos: " + e.getMessage( ) );
         }
 
         String cadenaGanador = JugadorContinental.VICTORIA + ":" + condicion;
@@ -484,7 +486,7 @@ public class Encuentro extends Thread
     }
     
     /**
-     * Retorna una cadena con la información del encuentro con el siguiente formato:<br>
+     * Retorna una cadena con la informaciï¿½n del encuentro con el siguiente formato:<br>
      * <jugador1> ( <puntos> ) - <jugador2> ( <puntos> )
      * @return cadena
      */
@@ -517,12 +519,12 @@ public class Encuentro extends Thread
     {
         if( !termino )
         {
-            assert socketJugador1 != null : "Canal inválido";
-            assert out1 != null : "Flujo inválido";
-            assert in1 != null : "Flujo inválido";
-            assert socketJugador2 != null : "Canal inválido";
-            assert out2 != null : "Flujo inválido";
-            assert in2 != null : "Flujo inválido";
+            assert socketJugador1 != null : "Canal invï¿½lido";
+            assert out1 != null : "Flujo invï¿½lido";
+            assert in1 != null : "Flujo invï¿½lido";
+            assert socketJugador2 != null : "Canal invï¿½lido";
+            assert out2 != null : "Flujo invï¿½lido";
+            assert in2 != null : "Flujo invï¿½lido";
         }
         
         assert jugador1 != null : "Jugador nulo";

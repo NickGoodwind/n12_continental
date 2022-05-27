@@ -28,7 +28,7 @@ public class PanelJuegos extends JPanel implements ActionListener
 
 	private InterfazServidor principal;
 	
-	private JList lista;
+	private JList<Encuentro> lista;
 	
 	private JScrollPane scroll;
 	
@@ -44,7 +44,7 @@ public class PanelJuegos extends JPanel implements ActionListener
 		setLayout( new BorderLayout( ) );
 		setBorder( new TitledBorder( "Juegos actuales" ) );
 		
-		lista = new JList( );
+		lista = new JList<Encuentro>( );
 		scroll = new JScrollPane( lista );
 		
 		actualizar = new JButton( "Actualizar" );
@@ -60,7 +60,7 @@ public class PanelJuegos extends JPanel implements ActionListener
 	 */
 	public void actualizar( ArrayList<Encuentro> pLista )
 	{
-		lista.setListData( pLista.toArray( ) );
+		lista.setListData( (Encuentro[])pLista.toArray( ) );
 	}
 
 	/**

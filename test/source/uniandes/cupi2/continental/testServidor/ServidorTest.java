@@ -12,7 +12,7 @@ import junit.framework.TestCase;
 
 /**
  * @author NickGoodwind
- * Esta es la clase usada para verificar los métodos de la clase Continental.
+ * Esta es la clase usada para verificar los mï¿½todos de la clase Continental.
  */
 public class ServidorTest extends TestCase
 {
@@ -21,7 +21,7 @@ public class ServidorTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * El tiempo máximo que se va a esperar a que se inicien los encuentros
+     * El tiempo mï¿½ximo que se va a esperar a que se inicien los encuentros
      */
     private static final long TIMEOUT = 1000;
 
@@ -30,16 +30,16 @@ public class ServidorTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * La clase donde se harán las pruebas
+     * La clase donde se harï¿½n las pruebas
      */
     private DecoradorServidor servidor;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Método constructor de la clase que crea un nuevo servidor para ejecutar las pruevas
+     * Mï¿½todo constructor de la clase que crea un nuevo servidor para ejecutar las pruevas
      */
     private void setupEscenario1( )
     {
@@ -49,12 +49,12 @@ public class ServidorTest extends TestCase
         }
         catch( Exception e )
         {
-            fail( "No debería haber problemas construyendo el servidor" );
+            fail( "No deberï¿½a haber problemas construyendo el servidor" );
         }
     }
 
     /**
-     * Método que es llamado al terminar la ejecución de cada prueba
+     * Mï¿½todo que es llamado al terminar la ejecuciï¿½n de cada prueba
      */
     protected void tearDown( ) throws Exception
     {   
@@ -62,12 +62,12 @@ public class ServidorTest extends TestCase
     }
 
     /**
-     * Método encargado de verificar si cuando se construye el servidor la conexión con la base de datos se establezce correctamente. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Mï¿½todo encargado de verificar si cuando se construye el servidor la conexiï¿½n con la base de datos se establezce correctamente. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * DecoradorServidor. <br>
-     * <b> Objetivo: </b> Probar que al iniciar el servidor, la conexión con la base de datos haya sido establecida. <br>
+     * <b> Objetivo: </b> Probar que al iniciar el servidor, la conexiï¿½n con la base de datos haya sido establecida. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al crear el servidor, el administrado de resultados no debería ser null.
+     * 1. Al crear el servidor, el administrado de resultados no deberï¿½a ser null.
      */
     public void testServidorContinental( )
     {
@@ -78,14 +78,14 @@ public class ServidorTest extends TestCase
     }
 
     /**
-     * Método encargado de verificar el método darListaActualizadaEncuentros. <br>
+     * Mï¿½todo encargado de verificar el mï¿½todo darListaActualizadaEncuentros. <br>
      * Usando la clase AyudantePruebasServidor para construir un Thread aparte en el que un Servidor espera conexiones entrantes, desde 
      * esta clase de pruebas se establecen conexiones al servidor para construir encuentros. <br>
-     *  <b> Métodos a probar: </b> <br>
+     *  <b> Mï¿½todos a probar: </b> <br>
      * darListaActualizadaEncuentros. <br>
-     * <b> Objetivo: </b> Probar que método darlistaActualizadaEncuentros, retorne los encuentros que realmente existen. <br>
+     * <b> Objetivo: </b> Probar que mï¿½todo darlistaActualizadaEncuentros, retorne los encuentros que realmente existen. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir la lista de encuentros, ésta sólo debe contener los encuentros que se están ejecutando en el momento.     
+     * 1. Al pedir la lista de encuentros, ï¿½sta sï¿½lo debe contener los encuentros que se estï¿½n ejecutando en el momento.     
      */
     public void testDarListaActualizadaEncuentros( )
     {
@@ -107,7 +107,7 @@ public class ServidorTest extends TestCase
             servidor.seInicioEncuentro( );
 
             Collection<Encuentro> lista = servidor.actualizarJuegos( );
-            assertTrue( "No se creó el encuentro", lista.size( ) == 1 );
+            assertTrue( "No se creï¿½ el encuentro", lista.size( ) == 1 );
             Encuentro e1 = ( Encuentro )lista.toArray( )[ 0 ];
             String[] strE1 = e1.toString( ).split( "," );
             String nombre1 = strE1[0];
@@ -115,12 +115,14 @@ public class ServidorTest extends TestCase
             assertTrue( "En el encuentro no aparecen los nombres de los jugadores", nombre1.endsWith( "pablo" ) );
             assertTrue( "En el encuentro no aparecen los nombres de los jugadores", nombre2.endsWith( "mario" ) );
         
-            ayudante.detener( );     
+            ayudante.detener( );
+            s1.close();
+            s2.close();
         }
         catch( IOException e )
         {	
             ayudante.detener( );
-            fail( "No debería fallar: " + e.getMessage( ) );
+            fail( "No deberï¿½a fallar: " + e.getMessage( ) );
         } 
     }
 }

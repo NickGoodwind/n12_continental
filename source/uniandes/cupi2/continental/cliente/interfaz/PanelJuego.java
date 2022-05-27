@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelJuego.java 1013 2007-08-20 23:04:33Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -42,12 +42,12 @@ public class PanelJuego extends JPanel implements MouseListener
     // Constantes
     // -----------------------------------------------------------------
     /**
-     * Constante de serialización.
+     * Constante de serializaciï¿½n.
      */
     private static final long serialVersionUID = 902864214018299624L;
 
     /**
-     * Constante con la ruta a las imágenes de las cartas.
+     * Constante con la ruta a las imï¿½genes de las cartas.
      */
     private final static String RUTA = ".//data//cartas//";
 
@@ -195,7 +195,7 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -206,7 +206,7 @@ public class PanelJuego extends JPanel implements MouseListener
     {
 
         juego = nJuego;
-        ArrayList cartas = juego.darJuego( );
+        ArrayList<Carta> cartas = juego.darJuego( );
 
         Carta carta = null;
 
@@ -265,12 +265,12 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     /**
-     * Método para manejar los clicks del mouse.
+     * Mï¿½todo para manejar los clicks del mouse.
      * @param e Evento del mouse.
      */
     public void mouseClicked( MouseEvent e )
     {
-        ArrayList cartas = juego.darJuego( );
+        ArrayList<Carta> cartas = juego.darJuego( );
 
         if( e.getButton( ) == MouseEvent.BUTTON1 )
         {
@@ -384,7 +384,7 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     /**
-     * Método para manejar una acción cuando el mouse entre a una zona especifica.
+     * Mï¿½todo para manejar una acciï¿½n cuando el mouse entre a una zona especifica.
      * @param e Evento del mouse.
      */
     public void mouseEntered( MouseEvent e )
@@ -393,7 +393,7 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     /**
-     * Método para manejar una acción cuando el mouse salga de una zona especifica.
+     * Mï¿½todo para manejar una acciï¿½n cuando el mouse salga de una zona especifica.
      * @param e Evento del mouse.
      */
     public void mouseExited( MouseEvent e )
@@ -402,7 +402,7 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     /**
-     * Método para manejar una acción cuando el mouse ha sido presionado
+     * Mï¿½todo para manejar una acciï¿½n cuando el mouse ha sido presionado
      * @param e Evento del mouse.
      */
     public void mousePressed( MouseEvent e )
@@ -411,7 +411,7 @@ public class PanelJuego extends JPanel implements MouseListener
     }
 
     /**
-     * Método para manejar una acción cuando el mouse ha sido soltado.
+     * Mï¿½todo para manejar una acciï¿½n cuando el mouse ha sido soltado.
      * @param e Evento del mouse.
      */
     public void mouseReleased( MouseEvent e )

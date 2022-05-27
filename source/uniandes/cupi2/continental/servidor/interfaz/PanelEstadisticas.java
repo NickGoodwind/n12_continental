@@ -31,7 +31,7 @@ public class PanelEstadisticas extends JPanel implements ActionListener
 
 	private InterfazServidor principal;
 	
-	private JList lista;
+	private JList<InfoJugador> lista;
 	
 	private JScrollPane scroll;
 	
@@ -45,9 +45,9 @@ public class PanelEstadisticas extends JPanel implements ActionListener
 		principal = p;
 		
 		setLayout( new BorderLayout( ) );
-		setBorder( new TitledBorder( "Estadísticas jugadores" ) );
+		setBorder( new TitledBorder( "Estadï¿½sticas jugadores" ) );
 		
-		lista = new JList( );
+		lista = new JList<InfoJugador>( );
 		scroll = new JScrollPane( lista );
 		
 		actualizar = new JButton( "Actualizar" );
@@ -63,7 +63,7 @@ public class PanelEstadisticas extends JPanel implements ActionListener
 	 */
 	public void actualizar( ArrayList<InfoJugador> pLista )
 	{
-		lista.setListData( pLista.toArray() );
+		lista.setListData( (InfoJugador[])pLista.toArray() );
 	}
 
 	/**
