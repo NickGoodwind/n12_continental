@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: JugadorContinental.java 1013 2007-08-20 23:04:33Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -54,17 +54,17 @@ public class JugadorContinental
     public static final String JUEGO_TERMINADO = "Juego terminado";
 
     /**
-     * Mensaje para enviar la información de una carta.
+     * Mensaje para enviar la informaciï¿½n de una carta.
      */
     public static final String CARTA = "CARTA";
 
     /**
-     * Mensaje para enviar la información del jugador.
+     * Mensaje para enviar la informaciï¿½n del jugador.
      */
     public static final String JUGADOR = "JUGADOR:";
 
     /**
-     * Mensaje para enviar la información de una victoria.
+     * Mensaje para enviar la informaciï¿½n de una victoria.
      */
     public static final String VICTORIA = "VICTORIA";
 
@@ -93,12 +93,12 @@ public class JugadorContinental
     private Socket canal;
 
     /**
-     * Flujo que envía los datos al servidor a través del socketServidor.
+     * Flujo que envï¿½a los datos al servidor a travï¿½s del socketServidor.
      */
     private PrintWriter outWriter;
 
     /**
-     * Flujo de donde se leen los datos que llegan del servidor a través del socketServidor.
+     * Flujo de donde se leen los datos que llegan del servidor a travï¿½s del socketServidor.
      */
     private BufferedReader inReader;
 
@@ -118,7 +118,7 @@ public class JugadorContinental
     private String estado;
 
     /**
-     * Estado que muestra si el jugador ya escogió una carta.
+     * Estado que muestra si el jugador ya escogiï¿½ una carta.
      */
     private boolean seleccionoCarta;
 
@@ -128,17 +128,17 @@ public class JugadorContinental
     private String nombreOponente;
 
     /**
-     * Número de derrotas del oponente.
+     * Nï¿½mero de derrotas del oponente.
      */
     private String numDerrotasOponente;
 
     /**
-     * Número de victorias del oponente.
+     * Nï¿½mero de victorias del oponente.
      */
     private String numVictoriasOponente;
 
     /**
-     * Estado que indica si el oponente cantó una victoria válida.
+     * Estado que indica si el oponente cantï¿½ una victoria vï¿½lida.
      */
     private boolean victoriaValidaOponente;
 
@@ -163,7 +163,7 @@ public class JugadorContinental
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -261,9 +261,9 @@ public class JugadorContinental
     /**
      * Conectarse el cliente al servidor del juego.
      * @param nombreJugador Nombre del jugador. nombreJugador != null.
-     * @param dirServ Dirección del servidor. dirServ != null.
+     * @param dirServ Direcciï¿½n del servidor. dirServ != null.
      * @param puertoServ Puerto del servidor. puertoServ != null.
-     * @throws ContinentalException Si se produce algún error al conectarse al servidor.
+     * @throws ContinentalException Si se produce algï¿½n error al conectarse al servidor.
      */
     public void conectar( String nombreJugador, String dirServ, int puertoServ ) throws ContinentalException
     {
@@ -287,22 +287,22 @@ public class JugadorContinental
             estado = JUEGO_TERMINADO;
             finDeJuego = true;
             verificarInvariante( );
-            throw new ContinentalException( "No fue posible establecer una conexión al servidor. " );
+            throw new ContinentalException( "No fue posible establecer una conexiï¿½n al servidor. " );
         }
         catch( IOException e )
         {
             estado = JUEGO_TERMINADO;
             finDeJuego = true;
             verificarInvariante( );
-            throw new ContinentalException( "No fue posible establecer una conexión al servidor. " );
+            throw new ContinentalException( "No fue posible establecer una conexiï¿½n al servidor. " );
         }
 
     }
 
     /**
-     * Envía al servidor los mensajes necesarios para iniciar un encuentro y recibe la información del oponente.
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
-     * @throws ContinentalException Se lanza esta excepción si hay un problema leyendo del canal.
+     * Envï¿½a al servidor los mensajes necesarios para iniciar un encuentro y recibe la informaciï¿½n del oponente.
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
+     * @throws ContinentalException Se lanza esta excepciï¿½n si hay un problema leyendo del canal.
      */
     private void iniciarEncuentro( ) throws ContinentalException
     {
@@ -314,7 +314,7 @@ public class JugadorContinental
             // Enviar el nombre del jugador
             outWriter.println( JUGADOR + nombre );
 
-            // Leer la información del jugador
+            // Leer la informaciï¿½n del jugador
             // INFO:<nombre>:<ganados>:<perdidos>
             String[] datosJugador;
             datosJugador = inReader.readLine( ).split( ":" );
@@ -335,7 +335,7 @@ public class JugadorContinental
 
     /**
      * Recibe del servidor las 7 cartas del juego, luego la primera carta destapada de la baraja y el turno que le corresponde .
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
      * @throws ContinentalException Si ocurre un error al recibir los datos del servidor.
      */
     public void recibirJuego( ) throws ContinentalException
@@ -354,7 +354,7 @@ public class JugadorContinental
             String[] datosCarta = inReader.readLine( ).split( ":" );
             juego.modificarCartaBarajaJugada( datosCarta[ 1 ], datosCarta[ 2 ], datosCarta[ 3 ] );
 
-            // Recibe a quién le corresponde el primer turno
+            // Recibe a quiï¿½n le corresponde el primer turno
             String[] datosPrimerTurno = inReader.readLine( ).split( ":" );
             if( datosPrimerTurno[ 1 ].equals( nombre ) )
                 estado = REALIZANDO_JUGADA;
@@ -372,9 +372,9 @@ public class JugadorContinental
     }
 
     /**
-     * Espera la jugada del oponente, puede ser VICTORIA o la carta que jugó este. <br>
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
-     * @throws ContinentalException Si ocurre un error al recibir la jugada del oponente, si se pierde la conexión con el oponente.
+     * Espera la jugada del oponente, puede ser VICTORIA o la carta que jugï¿½ este. <br>
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
+     * @throws ContinentalException Si ocurre un error al recibir la jugada del oponente, si se pierde la conexiï¿½n con el oponente.
      */
     public void esperarJugada( ) throws ContinentalException
     {
@@ -385,7 +385,7 @@ public class JugadorContinental
             if( jugada == null )
             {
                 estado = JUEGO_TERMINADO;
-                throw new ContinentalException( "Se ha perdido la conexión con el oponente." );
+                throw new ContinentalException( "Se ha perdido la conexiï¿½n con el oponente." );
             }
             datos = jugada.split( ":" );
 
@@ -412,8 +412,8 @@ public class JugadorContinental
 
     /**
      * Espera los datos de la victoria del oponente, si la victoria fue valida, recibe el juego con el que gano el oponente. 
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
-     * <b> post: </b> la variable finDeJuego es true y la variable victoriaValidaOponente indica si la victoria del oponente fue válida. <br>
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
+     * <b> post: </b> la variable finDeJuego es true y la variable victoriaValidaOponente indica si la victoria del oponente fue vï¿½lida. <br>
      * @param datos Cadena que indica si la victoria fue valida o no.
      * @throws ContinentalException Si ocurre un error al recibir las datos de la victoria del oponente.
      */
@@ -423,7 +423,7 @@ public class JugadorContinental
         {
             if( !datos[ 1 ].equals( "FALSA" ) )
             {
-                ArrayList cartas = new ArrayList( );
+                ArrayList<Carta> cartas = new ArrayList<Carta>( );
                 for( int i = 0; i < 7; i++ )
                 {
                     String[] datosCarta = inReader.readLine( ).split( ":" );
@@ -446,9 +446,9 @@ public class JugadorContinental
     }
 
     /**
-     * Envía los datos de la victoria al servidor <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
+     * Envï¿½a los datos de la victoria al servidor <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
      * @return True si el juego es valido, false de lo contrario.
-     * @throws ContinentalException Si ocurre un error al enviar la información de la victoria.
+     * @throws ContinentalException Si ocurre un error al enviar la informaciï¿½n de la victoria.
      */
     public boolean enviarDatosVictoria( ) throws ContinentalException
     {
@@ -457,7 +457,7 @@ public class JugadorContinental
         {
             outWriter.println( VICTORIA );
 
-            // Se recibe el juego del oponente, no se realiza alguna operación con las cartas, se deja para extensión del ejercicio.
+            // Se recibe el juego del oponente, no se realiza alguna operaciï¿½n con las cartas, se deja para extensiï¿½n del ejercicio.
 
             for( int i = 0; i < juego.darJuego( ).size( ); i++ )
             {
@@ -485,9 +485,9 @@ public class JugadorContinental
     }
 
     /**
-     * Envía la carta jugada al servidor y actualiza el estado a ESPERANDO_JUGADA. <b> 
+     * Envï¿½a la carta jugada al servidor y actualiza el estado a ESPERANDO_JUGADA. <b> 
      * pre: </b> El estado del jugador se encuentra REALIZANDO_JUGADA. <br>
-     * Se encuentra establecida una conexión con el servidor. <br>
+     * Se encuentra establecida una conexiï¿½n con el servidor. <br>
      * <b> post: </b> estado == ESPERANDO_JUGADA. <br>
      * seleccionoCarta == false. <br>
      * Se modifica la carta temporal del juego a null. <br>
@@ -510,10 +510,10 @@ public class JugadorContinental
 
     /**
      * Pide al servidor una carta de la baraja inicial y la coloca en la carta temporal del juego. <br>
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
      * El estado del jugador se encuentra REALIZANDO_JUGADA. <br>
      * <b> post: </b> seleccionoCarta == true. <br>
-     * @throws ContinentalException Si ocurre algún error al recibir la carta del servidor.
+     * @throws ContinentalException Si ocurre algï¿½n error al recibir la carta del servidor.
      */
     public void pedirCartaBarajaInicial( ) throws ContinentalException
     {
@@ -536,10 +536,10 @@ public class JugadorContinental
 
     /**
      * Pide al servidor una carta de la baraja jugada y la coloca en la carta temporal del juego. 
-     * <b> pre: </b> Se encuentra establecida una conexión con el servidor. <br>
+     * <b> pre: </b> Se encuentra establecida una conexiï¿½n con el servidor. <br>
      * El estado del jugador se encuentra REALIZANDO_JUGADA. <br>
      * <b> post: </b> seleccionoCarta == true. <br>
-     * @throws ContinentalException Si ocurre algún error al recibir la carta del servidor.
+     * @throws ContinentalException Si ocurre algï¿½n error al recibir la carta del servidor.
      */
     public void pedirCartaBarajaJugada( ) throws ContinentalException
     {
@@ -571,16 +571,16 @@ public class JugadorContinental
      */
     private void verificarInvariante( )
     {
-        assert ( estado.equals( REALIZANDO_JUGADA ) || estado.equals( ESPERANDO_JUGADA ) || estado.equals( ESPERANDO_OPONENTE ) || estado.equals( JUEGO_TERMINADO ) ) : "El estado no es válido";
+        assert ( estado.equals( REALIZANDO_JUGADA ) || estado.equals( ESPERANDO_JUGADA ) || estado.equals( ESPERANDO_OPONENTE ) || estado.equals( JUEGO_TERMINADO ) ) : "El estado no es vï¿½lido";
 
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extensiï¿½n
     // -----------------------------------------------------------------
 
     /**
-     * Método para la extensión 1.
+     * Mï¿½todo para la extensiï¿½n 1.
      * @return respuesta1.
      */
     public String metodo1( )
@@ -589,7 +589,7 @@ public class JugadorContinental
     }
 
     /**
-     * Método para la extensión2.
+     * Mï¿½todo para la extensiï¿½n2.
      * @return respuesta2.
      */
     public String metodo2( )

@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: Juego.java 1013 2007-08-20 23:04:33Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Clase que representa el juego de cartas que posee un jugador 
  * <b>inv: </b><br>
- * cartasEnJuego contiene máximo 7 cartas.<br>
+ * cartasEnJuego contiene mï¿½ximo 7 cartas.<br>
  */
 public class Juego
 {
@@ -29,7 +29,7 @@ public class Juego
     /**
      * Cartas que posee el jugador.
      */
-    private ArrayList cartasEnJuego;
+    private ArrayList<Carta> cartasEnJuego;
 
     /**
      * Carta que el jugador va a descartar.
@@ -54,14 +54,14 @@ public class Juego
      */
     public Juego( )
     {
-        cartasEnJuego = new ArrayList( );
+        cartasEnJuego = new ArrayList<Carta>( );
         temporal = null;
         cartaBarajaJugada = null;
         verificarInvariante( );
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -69,7 +69,7 @@ public class Juego
      * <b> pre: </b> La lista de cartas se encuentra inicializada. cartasEnJuego != null <br>
      * <b> post: </b> Se adiciona una nueva carta a la lista de cartas del jugador. <br>
      * @param palo Palo de la carta. palo != null.
-     * @param representacion Representación de la carta. representacion != null.
+     * @param representacion Representaciï¿½n de la carta. representacion != null.
      * @param imagen Ruta de la imagen que representa a la carta. imagen != null.
      */
     public void agregarCarta( String palo, String representacion, String imagen )
@@ -83,7 +83,7 @@ public class Juego
      * pre: </b> La lista de cartas se encuentra inicializada. cartasEnJuego != null. <br>
      * @return Cartas que posee el jugador.
      */
-    public ArrayList darJuego( )
+    public ArrayList<Carta> darJuego( )
     {
         return cartasEnJuego;
     }
@@ -100,7 +100,7 @@ public class Juego
     /**
      * Modificar la carta temporal.
      * @param palo Palo de la carta. palo != null.
-     * @param representacion Representación de la carta. representacion != null.
+     * @param representacion Representaciï¿½n de la carta. representacion != null.
      * @param imagen Ruta de la imagen que representa a la carta. imagen != null.
      */
     public void modificarCartaTemporal( String palo, String representacion, String imagen )
@@ -129,7 +129,7 @@ public class Juego
     /**
      * Modifica la carta actual de la baraja jugada.
      * @param palo Palo de la carta. palo != null.
-     * @param representacion Representación de la carta. representacion != null.
+     * @param representacion Representaciï¿½n de la carta. representacion != null.
      * @param imagen Ruta de la imagen que representa a la carta. imagen != null.
      */
     public void modificarCartaBarajaJugada( String palo, String representacion, String imagen )
@@ -154,11 +154,11 @@ public class Juego
     /**
      * Verificar el invariante de la clase Juego.<br>
      * <b>inv: </b><br>
-     * cartasEnJuego contiene máximo 7 cartas. <br>
+     * cartasEnJuego contiene mï¿½ximo 7 cartas. <br>
      */
     private void verificarInvariante( )
     {
-        assert ( cartasEnJuego.size( ) <= 7 ) : "No puede contener más de siete cartas.";
+        assert ( cartasEnJuego.size( ) <= 7 ) : "No puede contener mï¿½s de siete cartas.";
     }
 
 }

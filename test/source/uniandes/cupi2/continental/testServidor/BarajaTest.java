@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: BarajaTest.java 1010 2007-08-17 00:57:38Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -24,7 +24,7 @@ import uniandes.cupi2.servidor.mundo.Baraja;
 import junit.framework.TestCase;
 
 /**
- * Clase usada para verificar que los métodos de la clase Baraja estén correctamente implementados.
+ * Clase usada para verificar que los mï¿½todos de la clase Baraja estï¿½n correctamente implementados.
  */
 public class BarajaTest extends TestCase
 {
@@ -33,7 +33,7 @@ public class BarajaTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * Ruta donde se encuentra el archivo con la definición de las cartas.
+     * Ruta donde se encuentra el archivo con la definiciï¿½n de las cartas.
      */
     private final static String RUTA = "./data/cartas.properties";
 
@@ -96,7 +96,7 @@ public class BarajaTest extends TestCase
     }
 
     /**
-     * Escenario 2: Construye una baraja vacía
+     * Escenario 2: Construye una baraja vacï¿½a
      * 
      */
     private void setupEscenario2( )
@@ -105,7 +105,7 @@ public class BarajaTest extends TestCase
     }
     
     /**
-     * Escenario 3: Contruye una baraja con 7 cartas que no es válida para ganar
+     * Escenario 3: Contruye una baraja con 7 cartas que no es vï¿½lida para ganar
      */
     private void setupEscenario3( )
     {
@@ -151,7 +151,7 @@ public class BarajaTest extends TestCase
     }
     
     /**
-     * Escenario 3: Contruye una baraja con 7 cartas que es válida para ganar
+     * Escenario 3: Contruye una baraja con 7 cartas que es vï¿½lida para ganar
      */
     private void setupEscenario4( )
     {
@@ -211,7 +211,7 @@ public class BarajaTest extends TestCase
         baraja.adicionarCartaAlFinal( new Carta( "PICAS", "2", "2picas.png" ) );
         baraja.adicionarCartaAlFinal( new Carta( "PICAS", "AS", "apicas.png" ) );
 
-        ArrayList cartas = ( ArrayList )baraja.darCartas( );
+        ArrayList<Carta> cartas = ( ArrayList<Carta> )baraja.darCartas( );
         Carta carta = ( Carta )cartas.get( 1 );
         assertTrue( "Error al Agregar Carta al final", cartas.size( ) == 2 );
         assertTrue( "Error al Agregar Carta al final", carta.darPalo( ).equals( "PICAS" ) );
@@ -230,7 +230,7 @@ public class BarajaTest extends TestCase
         baraja.adicionarCartaEncima( new Carta( "PICAS", "2", "2picas.png" ) );
         baraja.adicionarCartaEncima( new Carta( "PICAS", "AS", "apicas.png" ) );
 
-        ArrayList cartas = ( ArrayList )baraja.darCartas( );
+        ArrayList<Carta> cartas = ( ArrayList<Carta> )baraja.darCartas( );
         Carta carta = ( Carta )cartas.get( 0 );
         assertTrue( "Error al Agregar Carta encima", cartas.size( ) == 2 );
         assertTrue( "Error al Agregar Carta encima", carta.darPalo( ).equals( "PICAS" ) );
@@ -287,7 +287,7 @@ public class BarajaTest extends TestCase
     	boolean condicion = baraja.valido( );
     	
     	assertTrue( "Error en la cantidad de cartas", baraja.darNumCartas( ) == 4 );
-    	assertFalse( "No debería validar la victoria", condicion );
+    	assertFalse( "No deberï¿½a validar la victoria", condicion );
     }
     
     /**
@@ -300,7 +300,7 @@ public class BarajaTest extends TestCase
     	boolean condicion = baraja.valido( );
     	
     	assertTrue( "Error en la cantidad de cartas", baraja.darNumCartas( ) == 4 );
-    	assertEquals( "No debería validar la victoria", true, condicion );
+    	assertEquals( "No deberï¿½a validar la victoria", true, condicion );
     }
     
     /**

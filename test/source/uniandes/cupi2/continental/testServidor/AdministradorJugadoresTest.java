@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: AdministradorJugadoresTest.java 1010 2007-08-17 00:57:38Z camil-ji $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n12_continental
- * Autor: Carlos Andrés Vega - 18-mar-2007
+ * Autor: Carlos Andrï¿½s Vega - 18-mar-2007
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -27,7 +27,7 @@ import uniandes.cupi2.servidor.mundo.InfoJugador;
 import junit.framework.TestCase;
 
 /**
- * Clase usada para verificar que los métodos de la clase AdministradorJugadores estén correctamente implementados.
+ * Clase usada para verificar que los mï¿½todos de la clase AdministradorJugadores estï¿½n correctamente implementados.
  */
 public class AdministradorJugadoresTest extends TestCase
 {
@@ -46,7 +46,7 @@ public class AdministradorJugadoresTest extends TestCase
     private Properties configuracion;
 
     /**
-     * Conexión usada para las pruebas.
+     * Conexiï¿½n usada para las pruebas.
      */
     private Connection conexionPruebas;
 
@@ -73,13 +73,13 @@ public class AdministradorJugadoresTest extends TestCase
         try
         {
             String driver = configuracion.getProperty( "admin.db.driver" );
-            Class.forName( driver ).newInstance( );
+            Class.forName( driver ).getDeclaredConstructor().newInstance( );
             String url = configuracion.getProperty( "admin.db.url" );
             conexionPruebas = DriverManager.getConnection( url );
         }
         catch( Exception e )
         {
-            fail( "Falló la conexión a la base de datos" );
+            fail( "Fallï¿½ la conexiï¿½n a la base de datos" );
         }
 
         try
@@ -160,8 +160,8 @@ public class AdministradorJugadoresTest extends TestCase
     }
 
     /**
-     * Este método, que se llama después de cada prueba, se encarga de detener el administrador y desconectarlo de la base de datos.
-     * @throws Exception Si hay problemas en la desconexión.
+     * Este mï¿½todo, que se llama despuï¿½s de cada prueba, se encarga de detener el administrador y desconectarlo de la base de datos.
+     * @throws Exception Si hay problemas en la desconexiï¿½n.
      */
     protected void tearDown( ) throws Exception
     {
@@ -175,7 +175,7 @@ public class AdministradorJugadoresTest extends TestCase
         }
         catch( Exception npe )
         {
-            fail( "No se debería lanzar una excepción desconectando" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n desconectando" );
         }
     }
 
@@ -184,65 +184,65 @@ public class AdministradorJugadoresTest extends TestCase
     // -----------------------------------------------------------------
     
     /**
-     * Prueba 1: Verifica el método consultarRegistrosJugadores revisando que los datos retornado correspondan a los insertados. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Prueba 1: Verifica el mï¿½todo consultarRegistrosJugadores revisando que los datos retornado correspondan a los insertados. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * consultarRegistrosJugadores. <br>
-     * <b> Objetivo: </b> Probar que el método consultarRegistrosJugaores() recupere correctamente los jugadores que han sido insertados. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo consultarRegistrosJugaores() recupere correctamente los jugadores que han sido insertados. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al pedir la lista de jugadores, se deben obtener cada uno de los jugadores que ha sido insertado previamente.
      */
     public void testConsultarRegistrosJugadores( )
     {
-        // Configuración básica
+        // Configuraciï¿½n bï¿½sica
         setupEscenario1( );
 
         // Consultar los Jugadores
         try
         {
-            Collection jugadores = administradorJugadores.consultarRegistroJugadores( );
-            assertEquals( "El número de jugadores no es correcto", 4, jugadores.size( ) );
+            Collection<InfoJugador> jugadores = administradorJugadores.consultarRegistroJugadores( );
+            assertEquals( "El nï¿½mero de jugadores no es correcto", 4, jugadores.size( ) );
 
             String nom0, nom1, nom2, nom3;
-            Iterator iter = jugadores.iterator( );
+            Iterator<InfoJugador> iter = jugadores.iterator( );
 
             InfoJugador j = ( InfoJugador )iter.next( );
             nom0 = j.darNombre( );
-            assertTrue( "Se retornó un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
+            assertTrue( "Se retornï¿½ un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
 
             j = ( InfoJugador )iter.next( );
             nom1 = j.darNombre( );
-            assertTrue( "Se retornó un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
+            assertTrue( "Se retornï¿½ un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
 
             j = ( InfoJugador )iter.next( );
             nom2 = j.darNombre( );
-            assertTrue( "Se retornó un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
+            assertTrue( "Se retornï¿½ un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
 
             j = ( InfoJugador )iter.next( );
             nom3 = j.darNombre( );
-            assertTrue( "Se retornó un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
+            assertTrue( "Se retornï¿½ un jugador equivocado", j.darNombre( ).equals( "Alicia" ) || j.darNombre( ).equals( "Beto" ) || j.darNombre( ).equals( "Carlos" ) || j.darNombre( ).equals( "Daniel" ) );
 
-            assertFalse( "Se listó dos veces el mismo jugador", nom0.equals( nom1 ) || nom0.equals( nom2 ) || nom0.equals( nom3 ) || nom1.equals( nom2 ) || nom1.equals( nom3 ) || nom2.equals( nom3 ) );
+            assertFalse( "Se listï¿½ dos veces el mismo jugador", nom0.equals( nom1 ) || nom0.equals( nom2 ) || nom0.equals( nom3 ) || nom1.equals( nom2 ) || nom1.equals( nom3 ) || nom2.equals( nom3 ) );
         }
         catch( Exception e )
         {
-            fail( "No se debería lanzar una excepción" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n" );
         }
     }
 
     /**
-     * Prueba 2: Verifica el método consultarRegistroJugador para el caso en el que se quiere consultar la información de un<br>
-     * jugador que ya existía en la base de datos. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Prueba 2: Verifica el mï¿½todo consultarRegistroJugador para el caso en el que se quiere consultar la informaciï¿½n de un<br>
+     * jugador que ya existï¿½a en la base de datos. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * consultarRegistroJugador. <br>
-     * <b> Objetivo: </b> Probar que el método consultarRegistroJugador() recupere correctamente el registro de un jugador insertado<br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo consultarRegistroJugador() recupere correctamente el registro de un jugador insertado<br>
      * previamente. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir el registro de un jugador, su información debe corresponder a la insertada originalmente.
+     * 1. Al pedir el registro de un jugador, su informaciï¿½n debe corresponder a la insertada originalmente.
      * 
      */
     public void testConsultarRegistroJugadorViejo( )
     {
-        // Configuración básica
+        // Configuraciï¿½n bï¿½sica
         setupEscenario1( );
 
         // Consultar un jugador viejo
@@ -250,31 +250,31 @@ public class AdministradorJugadoresTest extends TestCase
         {
             InfoJugador jugador = administradorJugadores.consultarRegistroJugador( "Alicia" );
             assertEquals( "El nombre del jugador es incorrecto", "Alicia", jugador.darNombre( ) );
-            assertEquals( "El número de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
-            assertEquals( "El número de encuentros perdidos es incorrecto", 2, jugador.darDerrotas( ) );
+            assertEquals( "El nï¿½mero de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
+            assertEquals( "El nï¿½mero de encuentros perdidos es incorrecto", 2, jugador.darDerrotas( ) );
         }
         catch( Exception e )
         {
-            fail( "No se debería lanzar una excepción" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n" );
         }
     }
 
     /**
-     * Prueba 3: Verifica el método consultarRegistroJugador para el caso en el que se quiere consultar la información <br>
+     * Prueba 3: Verifica el mï¿½todo consultarRegistroJugador para el caso en el que se quiere consultar la informaciï¿½n <br>
      * de un jugador que no existe en la base de datos.<br>
-     * En este caso el método consultarRegistroJugador debería crear un nuevo registro con valores en 0. <br>
-     * <b> Métodos a probar: </b> <br>
+     * En este caso el mï¿½todo consultarRegistroJugador deberï¿½a crear un nuevo registro con valores en 0. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * consultarRegistroJugador. <br>
-     * <b> Objetivo: </b> Probar que el método consultarRegistroJugador() cree un jugador cuando éste no se encuentra registrado<br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo consultarRegistroJugador() cree un jugador cuando ï¿½ste no se encuentra registrado<br>
      * en la base de datos. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir el registro de un jugador que no existe, éste debe ser creado en la base de datos con los valores en cero.<br>
-     * 2. Al registrar una victoria del nuevo jugador, sólo debe cambiar su número de encuentros ganados.
+     * 1. Al pedir el registro de un jugador que no existe, ï¿½ste debe ser creado en la base de datos con los valores en cero.<br>
+     * 2. Al registrar una victoria del nuevo jugador, sï¿½lo debe cambiar su nï¿½mero de encuentros ganados.
      * 
      */
     public void testConsultarRegistroJugadorNuevo( )
     {
-        // Configuración básica
+        // Configuraciï¿½n bï¿½sica
         setupEscenario1( );
 
         // Consultar un jugador nuevo
@@ -282,36 +282,36 @@ public class AdministradorJugadoresTest extends TestCase
         {
             InfoJugador jugador = administradorJugadores.consultarRegistroJugador( "Edgar" );
             assertEquals( "El nombre del jugador es incorrecto", "Edgar", jugador.darNombre( ) );
-            assertEquals( "El número de encuentros ganados es incorrecto", 0, jugador.darVictorias( ) );
-            assertEquals( "El número de encuentros perdidos es incorrecto", 0, jugador.darDerrotas( ) );
+            assertEquals( "El nï¿½mero de encuentros ganados es incorrecto", 0, jugador.darVictorias( ) );
+            assertEquals( "El nï¿½mero de encuentros perdidos es incorrecto", 0, jugador.darDerrotas( ) );
 
             // Modificar el jugador
             administradorJugadores.registrarVictoria( "Edgar" );
 
-            // Consultar nuevamente el jugador para verificar que se creó un registro
+            // Consultar nuevamente el jugador para verificar que se creï¿½ un registro
             jugador = administradorJugadores.consultarRegistroJugador( "Edgar" );
             assertEquals( "El nombre del jugador es incorrecto", "Edgar", jugador.darNombre( ) );
-            assertEquals( "El número de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
-            assertEquals( "El número de encuentros perdidos es incorrecto", 0, jugador.darDerrotas( ) );
+            assertEquals( "El nï¿½mero de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
+            assertEquals( "El nï¿½mero de encuentros perdidos es incorrecto", 0, jugador.darDerrotas( ) );
         }
         catch( Exception e )
         {
-            fail( "No se debería lanzar una excepción" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n" );
         }
     }
 
     /**
-     * Prueba 4: Verifica el método registrarVictoria. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Prueba 4: Verifica el mï¿½todo registrarVictoria. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * registrarVictoria. <br>
-     * <b> Objetivo: </b> Probar que el método registrarVictoria() modifique correctamente el número<br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo registrarVictoria() modifique correctamente el nï¿½mero<br>
      * de encuentros ganados de un jugador. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al registrar la victoria de un jugador, su número de encuentros ganados se debe incrementar en uno.
+     * 1. Al registrar la victoria de un jugador, su nï¿½mero de encuentros ganados se debe incrementar en uno.
      */
     public void testRegistrarVictoria( )
     {
-        // Configuración básica
+        // Configuraciï¿½n bï¿½sica
         setupEscenario1( );
 
         try
@@ -319,29 +319,29 @@ public class AdministradorJugadoresTest extends TestCase
             // Modificar el jugador
             administradorJugadores.registrarVictoria( "Alicia" );
 
-            // Consultar el jugador para verificar que se modificó el registro
+            // Consultar el jugador para verificar que se modificï¿½ el registro
             InfoJugador jugador = administradorJugadores.consultarRegistroJugador( "Alicia" );
             assertEquals( "El nombre del jugador es incorrecto", "Alicia", jugador.darNombre( ) );
-            assertEquals( "El número de encuentros ganados es incorrecto", 2, jugador.darVictorias( ) );
-            assertEquals( "El número de encuentros perdidos es incorrecto", 2, jugador.darDerrotas( ) );
+            assertEquals( "El nï¿½mero de encuentros ganados es incorrecto", 2, jugador.darVictorias( ) );
+            assertEquals( "El nï¿½mero de encuentros perdidos es incorrecto", 2, jugador.darDerrotas( ) );
         }
         catch( Exception e )
         {
-            fail( "No se debería lanzar una excepción" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n" );
         }
     }
 
     /**
-     * Prueba 5: Verifica el método registrarDerrota. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Prueba 5: Verifica el mï¿½todo registrarDerrota. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * registrarDerrota. <br>
-     * <b> Objetivo: </b> Probar que el método registrarDerrota() recupere correctamente el número de registro perdidos de un jugador. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo registrarDerrota() recupere correctamente el nï¿½mero de registro perdidos de un jugador. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al registrar la derrota de un jugador, su número de encuentros perdidos se debe incrementar en uno.
+     * 1. Al registrar la derrota de un jugador, su nï¿½mero de encuentros perdidos se debe incrementar en uno.
      */
     public void testRegistrarDerrota( )
     {
-        // Configuración básica
+        // Configuraciï¿½n bï¿½sica
         setupEscenario1( );
 
         try
@@ -349,15 +349,15 @@ public class AdministradorJugadoresTest extends TestCase
             // Modificar el jugador
             administradorJugadores.registrarDerrota( "Alicia" );
 
-            // Consultar el jugador para verificar que se modificó el registro
+            // Consultar el jugador para verificar que se modificï¿½ el registro
             InfoJugador jugador = administradorJugadores.consultarRegistroJugador( "Alicia" );
             assertEquals( "El nombre del jugador es incorrecto", "Alicia", jugador.darNombre( ) );
-            assertEquals( "El número de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
-            assertEquals( "El número de encuentros perdidos es incorrecto", 3, jugador.darDerrotas( ) );
+            assertEquals( "El nï¿½mero de encuentros ganados es incorrecto", 1, jugador.darVictorias( ) );
+            assertEquals( "El nï¿½mero de encuentros perdidos es incorrecto", 3, jugador.darDerrotas( ) );
         }
         catch( Exception e )
         {
-            fail( "No se debería lanzar una excepción" );
+            fail( "No se deberï¿½a lanzar una excepciï¿½n" );
         }
     }
 }

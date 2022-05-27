@@ -22,7 +22,7 @@ public class AdministradorJugadores
     // -----------------------------------------------------------------
 	
 	/**
-	 * La conexión con el servidor
+	 * La conexiï¿½n con el servidor
 	 */
 	private Connection conexion;
 	
@@ -48,18 +48,18 @@ public class AdministradorJugadores
 	}
 	
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
 	/**
-     * Método encargado de conectar el administrador a la base de datos
-     * @throws SQLException Cuando hay problemas realizando la operación
+     * Mï¿½todo encargado de conectar el administrador a la base de datos
+     * @throws SQLException Cuando hay problemas realizando la operaciï¿½n
      * @throws Exception Cuando hay problemas con los controladores
      */
     public void conectarABD( ) throws SQLException, Exception
     {
         String driver = propiedades.getProperty( "admin.db.driver" );
-        Class.forName( driver ).newInstance( );
+        Class.forName( driver ).getDeclaredConstructor().newInstance( );
 
         String url = propiedades.getProperty( "admin.db.url" );
         conexion = DriverManager.getConnection( url );
@@ -67,7 +67,7 @@ public class AdministradorJugadores
     }
     
     /**
-     * Método encargado de crear la tabla para guardar los resultados. Si la tabla ya estaba creada entonces no hace nada. <br>
+     * Mï¿½todo encargado de crear la tabla para guardar los resultados. Si la tabla ya estaba creada entonces no hace nada. <br>
      * @throws SQLException Cuando hay problemas creando la tabla
      */
     public void iniciarTabla( ) throws SQLException
@@ -91,8 +91,8 @@ public class AdministradorJugadores
     }
     
     /**
-     * Método encargado de detener la base de datos y desconectar el administrador
-     * @throws SQLException Cuando hay problemas realizando la operación
+     * Mï¿½todo encargado de detener la base de datos y desconectar el administrador
+     * @throws SQLException Cuando hay problemas realizando la operaciï¿½n
      */
     public void desconectarBD( ) throws SQLException
     { 
@@ -110,9 +110,9 @@ public class AdministradorJugadores
     }
     
 	/**
-	 * Método encargao de retornar el registro de todos los jugadores que se han conectado
+	 * Mï¿½todo encargao de retornar el registro de todos los jugadores que se han conectado
 	 * @return registro El registro de todos los jugadores
-	 * @throws SQLException Cuando hay problemas con la comunicación con la base de datos 
+	 * @throws SQLException Cuando hay problemas con la comunicaciï¿½n con la base de datos 
 	 */
     public ArrayList<InfoJugador> consultarRegistroJugadores( ) throws SQLException
     {
@@ -135,11 +135,11 @@ public class AdministradorJugadores
     }
     
     /**
-     * Método encargado de consultar la información de un jugador (encuentros ganados y encuentros perdidos).
+     * Mï¿½todo encargado de consultar la informaciï¿½n de un jugador (encuentros ganados y encuentros perdidos).
      * Si no se encuentra un registro del jugador en la base de datos, entonces se crea uno nuevo.
-     * @param nombre El nombre del jugador del cual se está buscando información - nombre != null
+     * @param nombre El nombre del jugador del cual se estï¿½ buscando informaciï¿½n - nombre != null
      * @return Retorna el registro de victorias y derrotas del jugador
-     * @throws SQLException Se lanza esta excepción si hay problemas en la comunicación con la base de datos
+     * @throws SQLException Se lanza esta excepciï¿½n si hay problemas en la comunicaciï¿½n con la base de datos
      */
     public InfoJugador consultarRegistroJugador( String nombre ) throws SQLException
     {
@@ -168,9 +168,9 @@ public class AdministradorJugadores
     }
 
     /**
-     * Método encargado de registrar una victoria a un jugador
+     * Mï¿½todo encargado de registrar una victoria a un jugador
      * @param nombre El nombre del jugador al cual se le va a registrar la victoria - nombre != null && corresponde a un registro en la base de datos
-     * @throws SQLException Cuando hay problemas en la comunicación con la base de datos
+     * @throws SQLException Cuando hay problemas en la comunicaciï¿½n con la base de datos
      */
     public void registrarVictoria( String nombre ) throws SQLException
     {
@@ -182,9 +182,9 @@ public class AdministradorJugadores
     }
 
     /**
-     * Método encargado de registrar una derrota a un jugador
+     * Mï¿½todo encargado de registrar una derrota a un jugador
      * @param nombre El nombre del jugador al cual se le va a registrar la derrota - nombre != null && corresponde a un registro en la base de datos
-     * @throws SQLException Cuando hay problemas en la comunicación con la base de datos
+     * @throws SQLException Cuando hay problemas en la comunicaciï¿½n con la base de datos
      */
     public void registrarDerrota( String nombre ) throws SQLException
     {
@@ -206,6 +206,6 @@ public class AdministradorJugadores
      */
 	private void verificarInvariante( )
 	{
-		assert propiedades != null : "Conjunto de propiedades inválidas";   
+		assert propiedades != null : "Conjunto de propiedades invï¿½lidas";   
 	}
 }
